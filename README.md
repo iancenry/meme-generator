@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# eme Generator
+This is the server side code of a teleegram bot that utilizes openai's chatgpt to reply to telegram messages.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot_20230321-234327_Telegram](https://user-images.githubusercontent.com/77986239/226741297-2d4929d7-7cf4-4582-baae-5cb143fd4192.jpg)
 
-## Available Scripts
+## Quick Setup
+1. Fork then clone the project into local machine 🍴
+1. Run `npm install` in the root folder to install all the necessary dependencies 👩‍💻
+1. Happy coding 💻
+**NB** Add your own telegram token and openai api key.
 
-In the project directory, you can run:
+* Dependencies used: ``dotenv``, ``express``, ``node-telegram-bot-api``, ``openai``
 
-### `npm start`
+[Bot Link](t.me/exurbiaBot)  -  Working bot upon request due to openai API limit. \
+[Reference documentation](https://core.telegram.org/bots) \
+[Node Telegram Bot Api Github](https://github.com/yagop/node-telegram-bot-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ event listeners onClick, onChange, onMouseEnter -e.g.,  onChange={handleChangeFunction}
+   - code example
+	   ```jsx
+	    const [meme, setMeme] = React.useState({topText: "", bottomText:"", randomImage: ""})
+	    function handleChange(event){
+     		 const {name, value} = event.target
+     		 setMeme(prevMemeData => ({...prevMemeData, [name]: value}))
+  	    }
+	    
+            <input 
+                type="text" 
+                id="top-text"
+                placeholder="Top-text" 
+                className="form-input"
+                onChange={handleChange}
+                name ="topText"
+                value={meme.topText}
+            ></input>
+	```
+## NB
+            computed properties [event.target.name]: event.target.value -you can turn a dynamic string(like something saved in a variable) and use it as property name for an object
+	    Controlled inputs/components and single source of truth - Refer to (link to Boxes repo)
+	    side effects 
+		- If we were to do this without effect, everytime the component renders we
+would call fetch which will set the meme data whcih will update state and therefore causing react to rerender the component and the process will keep repeating
+and this will cause an infinte loop of component rendering
+```js
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+```

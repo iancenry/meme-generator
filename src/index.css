@@ -1,13 +1,147 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+:root{
+    font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header{  
+    height: 65px;
+    padding: 1.1875rem 9rem;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+main{
+    padding: 80px 15%;
+}
+form{
+    display: -ms-grid;
+    display: grid;
+    grid-template:40px 40px / 1fr 1fr ;
+    gap: 40px;
+      
+}
+.form-input{
+    height: 35px;
+    border-radius: 7px;
+    border: 1.5px solid #D5D4D8;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    text-indent: 10px;
+
+}
+.btn{
+    grid-column: 1/-1;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #711F8D 1.14%, #A818DA 100%);
+    font-size: 1rem;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+ 
+
+.meme {
+    position: relative;
+}
+
+.meme--image {
+    border-radius: 4px;
+    margin-top: 50px;
+    width: 100%;
+    height: 800px;
+}
+
+.meme--text {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 50px;
+}
+
+
+/**
+***************************LOGIN FORM***************************************** 
+**/
+.form-container {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.form--input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form--submit {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #639;
+    border: none;   
+    cursor: pointer; 
+}
+
+.form--marketing {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.form--marketing > input {
+    margin-right: 10px;
+}
+
