@@ -1,5 +1,5 @@
 # Meme Generator
-This is the server side code of a teleegram bot that utilizes openai's chatgpt to reply to telegram messages.
+This is a react application that can be used to create memes, the images are fetched from ``https://api.imgflip.com/get_memes`` API.
 
 
 ## Quick Setup
